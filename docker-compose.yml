@@ -1,0 +1,90 @@
+# Docker Compose Configuration for Recipe Manager
+# This file defines the services needed to run the application locally
+#
+# Services:
+#   - db: PostgreSQL database
+#   - backend: FastAPI Python backend
+#   - frontend: Next.js React frontend
+#
+# Usage:
+#   docker-compose up -d    # Start all services in detached mode
+#   docker-compose down     # Stop all services
+#   docker-compose logs -f  # View logs
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: recipe_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-recipe_db}
+      POSTGRES_USER: ${DB_USER:-recipe_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-recipe_password}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-recipe_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: recipe_backend
+    restart: unless-stopped
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME:-recipe_db}
+      - DB_USER=${DB_USER:-recipe_user}
+      - DB_PASSWORD=${DB_PASSWORD:-recipe_password}
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Next.js Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: recipe_frontend
+    restart: unless-stopped
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NODE_ENV=${NODE_ENV:-development}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    command: npm run dev
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    name: recipe_network
