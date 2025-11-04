@@ -241,7 +241,7 @@ Create a new Next.js project in a 'frontend' directory with the following requir
 ```
 Create a Python FastAPI backend in a 'backend' directory with:
 - Virtual environment setup instructions
-- requirements.txt with FastAPI, uvicorn, SQLAlchemy, psycopg2-binary, python-dotenv, and pydantic
+- requirements.txt with FastAPI, uvicorn, SQLAlchemy, psycopg[binary] (psycopg3 for Python 3.13 support), python-dotenv, and pydantic
 - Basic FastAPI app structure in main.py
 - CORS middleware configured to allow requests from http://localhost:3000
 - A health check endpoint at GET /health
