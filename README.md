@@ -40,8 +40,8 @@ We'll build a Recipe Manager application - a full-stack system that allows users
 Before starting, you'll need to install these tools:
 
 - **Docker Desktop** (includes Docker Compose V2)
-- **Node.js 18+** and **npm**
-- **Python 3.11+**
+- **Node.js 24+** and **npm**
+- **Python 3.13+**
 - **Claude Code CLI**
 - Basic understanding of REST APIs and web development
 
@@ -66,17 +66,17 @@ echo 'eval "$(mise activate zsh)"' >> ~/.zshrc    # for zsh
 
 **Install Node.js and Python with mise:**
 ```bash
-# Install Node.js 18
-mise install node@18
-mise use -g node@18
+# Install Node.js 24
+mise install node@24
+mise use -g node@24
 
-# Install Python 3.11
-mise install python@3.11
-mise use -g python@3.11
+# Install Python 3.13
+mise install python@3.13
+mise use -g python@3.13
 
 # Verify installations
-node --version   # Should show v18.x.x
-python --version # Should show 3.11.x
+node --version   # Should show v24.x.x
+python --version # Should show 3.13.x
 ```
 
 **Using mise with this project:**
@@ -84,8 +84,8 @@ python --version # Should show 3.11.x
 # Create .mise.toml in project root
 cat > .mise.toml << EOF
 [tools]
-node = "18"
-python = "3.11"
+node = "24"
+python = "3.13"
 EOF
 
 # mise will automatically use these versions when in the project directory
@@ -148,29 +148,29 @@ start https://nodejs.org/
 **Linux:**
 ```bash
 # Using NodeSource repository (Ubuntu/Debian)
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Verify installation
-node --version  # Should show v18.x.x or higher
+node --version  # Should show v24.x.x or higher
 npm --version
 ```
 
-#### Python 3.11+
+#### Python 3.13+
 
 **macOS:**
 ```bash
 # Using Homebrew
-brew install python@3.11
+brew install python@3.13
 
 # Verify installation
-python3 --version  # Should show 3.11.x or higher
+python3 --version  # Should show 3.13.x or higher
 ```
 
 **Windows:**
 ```bash
 # Using winget
-winget install Python.Python.3.11
+winget install Python.Python.3.13
 
 # Or download from python.org
 start https://www.python.org/downloads/
@@ -180,10 +180,10 @@ start https://www.python.org/downloads/
 ```bash
 # Ubuntu/Debian
 sudo apt update
-sudo apt install python3.11 python3.11-venv python3-pip
+sudo apt install python3.13 python3.13-venv python3-pip
 
 # Verify installation
-python3 --version  # Should show 3.11.x or higher
+python3 --version  # Should show 3.13.x or higher
 ```
 
 #### Claude Code CLI

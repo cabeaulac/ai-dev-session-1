@@ -7,15 +7,15 @@ Get started with the Recipe Manager tutorial in just a few minutes!
 Make sure you have these tools installed first:
 
 - **Docker Desktop** (includes Docker Compose V2) - [Installation instructions in README](README.md#installing-prerequisites)
-- **Node.js 18+** and **npm**
-- **Python 3.11+**
+- **Node.js 24+** and **npm**
+- **Python 3.13+**
 - **Claude Code CLI**
 
 **Quick check:**
 ```bash
 docker compose version  # Should show v2.x.x
-node --version          # Should show v18.x.x+
-python3 --version       # Should show 3.11.x+
+node --version          # Should show v24.x.x+
+python3 --version       # Should show 3.13.x+
 claude --version        # Should show Claude Code version
 ```
 
