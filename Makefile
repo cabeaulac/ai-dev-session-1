@@ -28,6 +28,7 @@ help:
 	@echo ""
 	@echo "Database:"
 	@echo "  make migrate         - Run database migrations"
+	@echo "  make seed            - Seed database with sample data"
 	@echo "  make migrate-create  - Create a new migration"
 	@echo "  make shell-db        - Open PostgreSQL shell"
 	@echo ""
@@ -124,6 +125,15 @@ migrate:
 		docker compose exec backend alembic upgrade head; \
 	else \
 		echo "Backend directory not found. Cannot run migrations."; \
+	fi
+
+# Seed database with initial data
+seed:
+	@echo "Seeding database with initial data..."
+	@if [ -d "backend" ]; then \
+		docker compose exec backend python seed.py; \
+	else \
+		echo "Backend directory not found. Cannot seed database."; \
 	fi
 
 # Create a new database migration
