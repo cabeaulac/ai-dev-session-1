@@ -40,4 +40,20 @@ describe('RecipeCard', () => {
     const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', '/recipes/1')
   })
+
+  it('applies blue-toned color scheme', () => {
+    const recipeWithCategory = {
+      ...mockRecipe,
+      category: { id: 1, name: 'Dessert', description: 'Sweet treats' },
+    }
+
+    const { container } = render(<RecipeCard recipe={recipeWithCategory} />)
+
+    const card = container.querySelector('div[class*="border-primary-200"]')
+    expect(card).toBeInTheDocument()
+
+    const categoryBadge = screen.getByText('Dessert')
+    expect(categoryBadge).toHaveClass('bg-accent-100')
+    expect(categoryBadge).toHaveClass('text-accent-800')
+  })
 })

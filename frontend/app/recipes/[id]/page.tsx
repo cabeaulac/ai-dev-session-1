@@ -74,9 +74,9 @@ export default function RecipeDetailPage() {
   const totalTime = (recipe.prep_time || 0) + (recipe.cook_time || 0);
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen p-8 bg-primary-50 dark:bg-primary-900">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+        <div className="bg-white dark:bg-primary-800 rounded-lg shadow-md p-8">
           <div className="flex justify-between items-start mb-6">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
               {recipe.title}
@@ -84,7 +84,7 @@ export default function RecipeDetailPage() {
             <div className="flex gap-2">
               <Link
                 href={`/recipes/${recipe.id}/edit`}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
               >
                 Edit
               </Link>
@@ -106,17 +106,17 @@ export default function RecipeDetailPage() {
 
           <div className="flex flex-wrap gap-4 mb-8 text-sm">
             {recipe.category && (
-              <div className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-lg">
+              <div className="bg-accent-100 dark:bg-accent-800 text-accent-800 dark:text-accent-100 px-4 py-2 rounded-lg">
                 {recipe.category.name}
               </div>
             )}
             {recipe.prep_time && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-primary-50 dark:bg-primary-700 px-4 py-2 rounded-lg">
                 Prep: {recipe.prep_time} min
               </div>
             )}
             {recipe.cook_time && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-primary-50 dark:bg-primary-700 px-4 py-2 rounded-lg">
                 Cook: {recipe.cook_time} min
               </div>
             )}
@@ -126,7 +126,7 @@ export default function RecipeDetailPage() {
               </div>
             )}
             {recipe.servings && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-primary-50 dark:bg-primary-700 px-4 py-2 rounded-lg">
                 Serves: {recipe.servings}
               </div>
             )}
@@ -143,7 +143,7 @@ export default function RecipeDetailPage() {
                     key={ingredient.id}
                     className="flex items-center text-gray-700 dark:text-gray-300"
                   >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-primary-600 rounded-full mr-3"></span>
                     <span>
                       {ingredient.amount && ingredient.unit
                         ? `${ingredient.amount} ${ingredient.unit} `
@@ -173,7 +173,7 @@ export default function RecipeDetailPage() {
         <div className="mt-6">
           <Link
             href="/recipes"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            className="text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300"
           >
             ← Back to all recipes
           </Link>

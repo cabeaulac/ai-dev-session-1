@@ -94,7 +94,7 @@ export default function RecipeForm({
           required
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
         />
       </div>
 
@@ -105,7 +105,7 @@ export default function RecipeForm({
           onChange={(e) =>
             setFormData({ ...formData, description: e.target.value })
           }
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
           rows={3}
         />
       </div>
@@ -118,7 +118,7 @@ export default function RecipeForm({
           onChange={(e) =>
             setFormData({ ...formData, instructions: e.target.value })
           }
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
           rows={6}
         />
       </div>
@@ -135,7 +135,7 @@ export default function RecipeForm({
                 prep_time: e.target.value ? parseInt(e.target.value) : undefined,
               })
             }
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
           />
         </div>
         <div>
@@ -149,7 +149,7 @@ export default function RecipeForm({
                 cook_time: e.target.value ? parseInt(e.target.value) : undefined,
               })
             }
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
           />
         </div>
         <div>
@@ -163,7 +163,7 @@ export default function RecipeForm({
                 servings: e.target.value ? parseInt(e.target.value) : undefined,
               })
             }
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
           />
         </div>
       </div>
@@ -178,7 +178,7 @@ export default function RecipeForm({
               category_id: e.target.value ? parseInt(e.target.value) : undefined,
             })
           }
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 dark:bg-primary-900 dark:border-primary-700"
         >
           <option value="">Select a category</option>
           {categories.map((category) => (
@@ -195,7 +195,7 @@ export default function RecipeForm({
           <button
             type="button"
             onClick={addIngredient}
-            className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            className="text-primary-600 hover:text-primary-800 text-sm font-medium"
           >
             + Add Ingredient
           </button>
@@ -244,7 +244,7 @@ export default function RecipeForm({
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+          className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
         >
           {loading ? "Saving..." : submitLabel}
         </button>

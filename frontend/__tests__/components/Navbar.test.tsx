@@ -22,4 +22,17 @@ describe('Navbar', () => {
     expect(recipesLink).toHaveAttribute('href', '/recipes')
     expect(createLink).toHaveAttribute('href', '/recipes/new')
   })
+
+  it('applies blue-toned color scheme', () => {
+    const { container } = render(<Navbar />)
+
+    const nav = container.querySelector('nav')
+    expect(nav).toHaveClass('bg-primary-600')
+
+    const brandLink = screen.getByText('Recipe Manager')
+    expect(brandLink).toHaveClass('hover:text-primary-100')
+
+    const homeLink = screen.getByText('Home')
+    expect(homeLink).toHaveClass('hover:bg-primary-700')
+  })
 })
