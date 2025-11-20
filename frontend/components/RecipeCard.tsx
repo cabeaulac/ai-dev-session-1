@@ -11,7 +11,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
 
   return (
     <Link href={`/recipes/${recipe.id}`}>
-      <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer bg-white dark:bg-gray-800 dark:border-gray-700">
+      <div className="border border-gray-200 dark:border-slate-700 rounded-lg p-6 hover:shadow-lg transition-all cursor-pointer bg-white dark:bg-slate-800">
         <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
           {recipe.title}
         </h3>
@@ -22,17 +22,17 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
         )}
         <div className="flex flex-wrap gap-2 text-sm text-gray-500 dark:text-gray-400">
           {recipe.category && (
-            <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+            <span className="bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded">
               {recipe.category.name}
             </span>
           )}
           {totalTime > 0 && (
-            <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+            <span className="bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">
               {totalTime} min
             </span>
           )}
           {recipe.servings && (
-            <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+            <span className="bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">
               Serves {recipe.servings}
             </span>
           )}

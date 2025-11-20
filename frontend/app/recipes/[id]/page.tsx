@@ -51,7 +51,7 @@ export default function RecipeDetailPage() {
     return (
       <main className="min-h-screen p-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center text-gray-600 dark:text-gray-400">
+          <div className="text-center text-gray-400">
             Loading recipe...
           </div>
         </div>
@@ -74,9 +74,9 @@ export default function RecipeDetailPage() {
   const totalTime = (recipe.prep_time || 0) + (recipe.cook_time || 0);
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen p-8 bg-gray-100 dark:bg-slate-900 transition-colors">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+        <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-8 transition-colors">
           <div className="flex justify-between items-start mb-6">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
               {recipe.title}
@@ -84,7 +84,7 @@ export default function RecipeDetailPage() {
             <div className="flex gap-2">
               <Link
                 href={`/recipes/${recipe.id}/edit`}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700"
               >
                 Edit
               </Link>
@@ -106,27 +106,27 @@ export default function RecipeDetailPage() {
 
           <div className="flex flex-wrap gap-4 mb-8 text-sm">
             {recipe.category && (
-              <div className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-lg">
+              <div className="bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-4 py-2 rounded-lg">
                 {recipe.category.name}
               </div>
             )}
             {recipe.prep_time && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg">
                 Prep: {recipe.prep_time} min
               </div>
             )}
             {recipe.cook_time && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg">
                 Cook: {recipe.cook_time} min
               </div>
             )}
             {totalTime > 0 && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg font-semibold">
+              <div className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-semibold">
                 Total: {totalTime} min
               </div>
             )}
             {recipe.servings && (
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
+              <div className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg">
                 Serves: {recipe.servings}
               </div>
             )}
@@ -143,7 +143,7 @@ export default function RecipeDetailPage() {
                     key={ingredient.id}
                     className="flex items-center text-gray-700 dark:text-gray-300"
                   >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                     <span>
                       {ingredient.amount && ingredient.unit
                         ? `${ingredient.amount} ${ingredient.unit} `
@@ -173,7 +173,7 @@ export default function RecipeDetailPage() {
         <div className="mt-6">
           <Link
             href="/recipes"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300"
           >
             ← Back to all recipes
           </Link>

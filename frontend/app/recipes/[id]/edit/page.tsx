@@ -38,7 +38,7 @@ export default function EditRecipePage() {
     return (
       <main className="min-h-screen p-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center text-gray-600 dark:text-gray-400">
+          <div className="text-center text-gray-400">
             Loading recipe...
           </div>
         </div>
@@ -59,12 +59,12 @@ export default function EditRecipePage() {
   }
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen p-8 bg-gray-100 dark:bg-slate-900 transition-colors">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
           Edit Recipe
         </h1>
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md transition-colors">
           <RecipeForm
             initialData={{
               title: recipe.title,

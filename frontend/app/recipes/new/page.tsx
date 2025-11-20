@@ -9,12 +9,12 @@ export default function NewRecipePage() {
   };
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50 dark:bg-gray-900">
+    <main className="min-h-screen p-8 bg-gray-100 dark:bg-slate-900 transition-colors">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
           Create New Recipe
         </h1>
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+        <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-md transition-colors">
           <RecipeForm onSubmit={handleSubmit} submitLabel="Create Recipe" />
         </div>
       </div>
